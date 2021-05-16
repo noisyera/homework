@@ -1,12 +1,10 @@
-# 对于不同GC的总结、
+# 对于不同GC的总结
 
 ## 串行GC
 
 > 启动参数： -XX:+PrintGCDetails -Xmx500m -Xms500m -XX:+UseSerialGC
 
 ![img_3.png](img_3.png)
-
-1.使用 GCLogAnalysis.java 自己演练一遍串行 / 并行 /CMS/G1 的案例。
 
 ## 并行GC
 
