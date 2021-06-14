@@ -1,0 +1,23 @@
+-- 订单商品关系表
+CREATE TABLE `ORDER_GOODS_MAP` (
+    `OG_ID` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `OG_NUM` int(11) NOT NULL DEFAULT '0' COMMENT '数量',
+    `OG_PRICE` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '单价',
+    `OG_TAX` decimal(8,2) NOT NULL DEFAULT '0.00',
+    `OG_NAME` varchar(128) NOT NULL DEFAULT '' COMMENT '商品名称',
+    `OG_TAXPRICE` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '交税金额',
+    `OG_SKUID` varchar(20) NOT NULL DEFAULT '0' COMMENT '商品编号',
+    `OG_NAKEDPRICE` decimal(8,2) NOT NULL DEFAULT '0.00',
+    `OG_TYPE` int(4) NOT NULL DEFAULT '1' COMMENT '商品类别',
+    `OG_ORDERID` varchar(20) NOT NULL DEFAULT '' COMMENT '订单编号',
+    `OG_RECEIVESTATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '收货状态 0 未收货 1 已收货',
+    `OG_TICKET` tinyint(4) NOT NULL DEFAULT '0' COMMENT '开票状态  0  未开票  1 已开票',
+    `OG_ACCOUNT` tinyint(4) NOT NULL DEFAULT '0' COMMENT '结算状态 0  未结算  1 已结算',
+    `OG_ISAFTSALE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否售后1',
+    `OG_CUSTOMEREXPECT` int(4) NOT NULL DEFAULT '0' COMMENT '售后类型 退货(10)、换货(20)、维修(20)',
+    `OG_RECEIVETIME` int(11) NOT NULL DEFAULT '0' COMMENT '确认收货时间',
+    `OG_FREIGHT` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '运费',
+    `OG_USERID` varchar(30) NOT NULL DEFAULT '' COMMENT '采购账户',
+    PRIMARY KEY (`OG_ID`),
+    KEY `G_ORDERID` (`OG_ORDERID`) USING BTREE,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,27 @@
+-- 订单表
+CREATE TABLE `ORDER` (
+    `O_ID` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `O_ORDERID` varchar(20) NOT NULL DEFAULT '' COMMENT '订单编号',
+    `O_P_ORDERID` varchar(20) NOT NULL DEFAULT '' COMMENT '父订单编号',
+    `O_WL_STATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '物流状态 0 是新建  1是妥投   2是拒收',
+    `O_ORDER_STATE` tinyint(4) NOT NULL DEFAULT '1' COMMENT '订单是否有效  1 有效  0 无效',
+    `O_SUBMIT_STATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '提交状态 0为未确认下单订单   1为确认下单订单',
+    `O_RECEIVESTATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '收货状态 0   未收货 1 全部收货 2 部分收货',
+    `O_IS_LEAF` tinyint(4) NOT NULL DEFAULT '1' COMMENT '订单类型   1是父订单   2是子订单',
+    `O_TYPE` int(4) NOT NULL DEFAULT '1' COMMENT '订单类别',
+    `O_TIME` int(11) NOT NULL DEFAULT '0' COMMENT '推送时间',
+    `O_DELIVERED_TIME` int(11) NOT NULL DEFAULT '0' COMMENT '妥投时间',
+    `O_ORDERPRICE` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '订单价格',
+    `O_FREIGHT` decimal(10,2) NOT NULL DEFAULT '0.00' COMMENT '运费',
+    `O_ORDERNAKEDPRICE` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '订单裸价',
+    `O_ORDERTAXPRICE` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '订单税金',
+    `O_USERID` varchar(30) NOT NULL DEFAULT '' COMMENT '购买账户',
+    `O_NAME` varchar(30) NOT NULL DEFAULT '' COMMENT '购买人姓名',
+    `O_ADDRESS` varchar(200) NOT NULL DEFAULT '' COMMENT '收货地址',
+    `O_MOBILE` varchar(12) NOT NULL DEFAULT '' COMMENT '手机号',
+    `O_ACCOUNT_STATE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '订单结算状态',
+    PRIMARY KEY (`O_ID`),
+    KEY `O_ORDERID` (`O_ORDERID`) USING BTREE,
+    KEY `O_P_ORDERID` (`O_P_ORDERID`) USING BTREE,
+    KEY `O_USERID` (`O_USERID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

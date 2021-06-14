@@ -1,0 +1,15 @@
+-- 商品表
+CREATE TABLE `GOODS` (
+    `G_ID` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+    `G_CATEGORY` varchar(20) NOT NULL DEFAULT '',
+    `G_NUM` int(11) NOT NULL DEFAULT '0' COMMENT '数量',
+    `G_PRICE` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '单价',
+    `G_TAX` decimal(8,2) NOT NULL DEFAULT '0.00' COMMENT '交税金额',
+    `G_NAME` varchar(128) NOT NULL DEFAULT '' COMMENT '商品名称',
+    `G_SKUID` varchar(20) NOT NULL DEFAULT '0' COMMENT '商品编号',
+    `G_NAKEDPRICE` decimal(8,2) NOT NULL DEFAULT '0.00',
+    `G_TYPE` int(4) NOT NULL DEFAULT '1' COMMENT '商品类别',
+    `G_UNIT` varchar(6) NOT NULL DEFAULT '' COMMENT '计量单位',
+    PRIMARY KEY (`G_ID`),
+    KEY `G_ORDERID` (`G_ORDERID`) USING BTREE,
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -1,0 +1,9 @@
+-- 用户表
+CREATE TABLE `USER` (
+    `U_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+    `U_ACCOUNT` varchar(30) NOT NULL DEFAULT '' COMMENT '账号',
+    `U_USERNAME` varchar(15) NOT NULL DEFAULT '' COMMENT '姓名',
+    `U_PHONE` varchar(20) NOT NULL DEFAULT '' COMMENT '电话',
+    `U_IS_DELETE` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0  否  1 是',
+    PRIMARY KEY (`U_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
